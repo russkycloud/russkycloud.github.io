@@ -2,11 +2,11 @@ const video = document.getElementById('video')
 
 //Loading the Model Data
 const MODEL_URL = '/weights'
-
+async function start() {
 await faceapi.loadSsdMobilenetv1Model(MODEL_URL)
 await faceapi.loadFaceLandmarkModel(MODEL_URL)
 await faceapi.loadFaceRecognitionModel(MODEL_URL)
-
+}
 //Receive a Full Description for all Faces from an Input Image
 const input = document.getElementById('imageUpload')
 let fullFaceDescriptions = await faceapi.detectAllFaces(input).withFaceLandmarks().withFaceDescriptors()
